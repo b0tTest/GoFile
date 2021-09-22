@@ -21,7 +21,8 @@ Bot = Client(
 @Bot.on_message(filters.private & filters.command("start"))
 async def start(bot, update):
     await update.reply_text(
-        text=f"Hello {update.from_user.mention}, Please send a media for gofile.io stream link.\n\nMade by @FayasNoushad",
+        text=f"Hello👋 {update.from_user.mention},\n Please send a media for gofile.io stream link.\n\nMade With❤BY @MyTestBotZ",
+        reply_markup=START_BUTTONS,
         disable_web_page_preview=True,
         quote=True
     )
@@ -56,18 +57,18 @@ async def media_filter(bot, update):
             disable_web_page_preview=True
         )
         return
-    text = f"**File Name:** `{response['fileName']}`" + "\n"
-    text += f"**Download Page:** `{response['downloadPage']}`" + "\n"
-    text += f"**Direct Download Link:** `{response['directLink']}`" + "\n"
-    text += f"**Info:** `{response['info']}`"
+    text = f"**File Name:** `{response['fileName']}`" + "\n\n"
+    text += f"**Download Page:** `{response['downloadPage']}`" + "\n\n"
+    text += f"**Direct Download Link:** `{response['directLink']}`" + "\n\n"
+    text += f"**Info:** `{response['info']}`" + "\n\n**© @MyTestBotZ**"
     reply_markup = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="Open Link", url=response['directLink']),
-                InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url={response['directLink']}")
+                InlineKeyboardButton(text="🔗Open Link", url=response['directLink']),
+                InlineKeyboardButton(text="🚀Share Link", url=f"https://telegram.me/share/url?url={response['directLink']}")
             ],
             [
-                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/FayasNoushad")
+                InlineKeyboardButton(text="⭕ Updates Channel ⭕", url="https://telegram.me/MyTestBotZ")
             ]
         ]
     )
@@ -77,5 +78,19 @@ async def media_filter(bot, update):
         disable_web_page_preview=True
     )
 
+@Bot.on_callback_query()
+async def cb_data(bot, update):
+    if update.data == "close":
+        await update.message.delete()
+
+START_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton("📡 Update Channel", url="https://t.me/mytestbotz"),
+        InlineKeyboardButton("🧞‍♂ Creator", url="https://t.me/OO7ROBOT")
+        ],[
+        InlineKeyboardButton("🔬 Other BotZ", url="https://t.me/mybotzlist"),
+        InlineKeyboardButton("Close 🔒", callback_data="close")
+        ]]
+    )
 
 Bot.run()
