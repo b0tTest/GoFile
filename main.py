@@ -38,12 +38,12 @@ async def media_filter(bot, update):
         )
         media = await update.download()
         await message.edit_text(
-            text="`Downloading...`",
+            text="`Uploading to GoFile...`",
             disable_web_page_preview=True
         )
         response = uploadFile(media)
         await message.edit_text(
-            text="`Uploading...`",
+            text="`🔗 Generating Link...`",
             disable_web_page_preview=True
         )
         try:
