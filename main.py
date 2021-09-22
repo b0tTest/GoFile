@@ -21,7 +21,7 @@ Bot = Client(
 @Bot.on_message(filters.private & filters.command("start"))
 async def start(bot, update):
     await update.reply_text(
-        text=f"Hello👋 {update.from_user.mention},\n Please send a media for gofile.io stream link.\n\nMade With❤BY @MyTestBotZ",
+        text=f"**Hello👋 {update.from_user.mention},\n Please send a media for gofile.io stream link.\n\nMade With❤BY @MyTestBotZ**",
         reply_markup=START_BUTTONS,
         disable_web_page_preview=True,
         quote=True
@@ -57,10 +57,10 @@ async def media_filter(bot, update):
             disable_web_page_preview=True
         )
         return
-    text = f"**File Name:** `{response['fileName']}`" + "\n\n"
-    text += f"**Download Page:** `{response['downloadPage']}`" + "\n\n"
-    text += f"**Direct Download Link:** `{response['directLink']}`" + "\n\n"
-    text += f"**Info:** `{response['info']}`" + "\n\n**© @MyTestBotZ**"
+    text = f"⍟ **File Name:** `{response['fileName']}`" + "\n\n"
+    text += f"⍟ **Download Page:** `{response['downloadPage']}`" + "\n\n"
+    text += f"⍟ **Direct Download Link:** `{response['directLink']}`" + "\n\n"
+    text += f"⍟ **Info:** `{response['info']}`" + "\n\n**© @MyTestBotZ**"
     reply_markup = InlineKeyboardMarkup(
         [
             [
