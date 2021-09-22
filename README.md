@@ -35,5 +35,5 @@ python3 main.py
 
 ## Credits
 
-- [Fayas Noushad](https://github.com/FayasNoushad/GoFile-Bot#
+- [Fayas Noushad](https://github.com/FayasNoushad/GoFile-Bot)
 - [Pyrogram](https://github.com/pyrogram/pyrogram)
